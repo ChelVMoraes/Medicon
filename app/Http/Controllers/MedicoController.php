@@ -13,7 +13,7 @@ class MedicoController extends Controller
      */
     public function index()
     {
-        $medicos = Medico::with('especialidade')->get(); 
+        $medicos = Medico::all(); 
         return view('medicos.index', compact('medicos'));
     }
 
@@ -47,7 +47,7 @@ class MedicoController extends Controller
      */
     public function show(Medico $medico)
     {
-        $medico->load('especialidade', 'consultas.paciente');
+        $medico->load('especialidades', 'consultas.paciente');
         return view('medicos.show', compact('medico'));
     }
 

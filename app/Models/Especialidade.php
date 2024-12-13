@@ -13,6 +13,6 @@ class Especialidade extends Model
 
     public function medicos()
     {
-        return $this->hasMany(Medico::class);
+        return $this->belongsToMany(Medico::class);
     }
 }

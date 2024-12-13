@@ -37,18 +37,16 @@ class EspecialidadeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Especialidade $especialidade)
     {
-        $especialidade = Especialidade::findOrFail($id);
         return view('especialidades.show', compact('especialidade'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Especialidade $especialidade)
     {
-        $especialidade = Especialidade::findOrFail($id);
         return view('especialidades.edit', compact('especialidade'));
     }
 

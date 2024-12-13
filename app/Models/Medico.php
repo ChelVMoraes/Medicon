@@ -9,11 +9,11 @@ class Medico extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nome', 'crm', 'especialidade_id'];
+    protected $fillable = ['nome', 'crm'];
 
-    public function especialidade()
+    public function especialidades()
     {
-        return $this->belongsTo(Especialidade::class, 'especialidade_id');
+        return $this->belongsToMany(Especialidade::class);
     }
 
     public function consultas()

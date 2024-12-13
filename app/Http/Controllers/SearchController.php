@@ -12,8 +12,12 @@ class SearchController extends Controller
     {
         $query = $request->input('query');
 
-        $medicos = Medico::where('nome', 'LIKE', "%{$query}%")->get();
-        $especialidades = Especialidade::where('nome', 'LIKE', "%{$query}%")->get();
+        $medicos = Medico::where('nome', 'LIKE', "%{$query}%")
+        ->orWhere('crm', 'LIKE', "%{$query}%")
+        ->get();
+
+        $especialidades = Especialidade::where('nome', 'LIKE', "%{$query}%")
+        ->get();
 
         return view('search.search_results', compact('medicos', 'especialidades', 'query'));
     }
